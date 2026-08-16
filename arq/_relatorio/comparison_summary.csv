@@ -1,0 +1,3 @@
+Teste,SGBD,Versao,Isolation,Terminals,Scale Factor,Duracao (s),Requests medidos,Throughput (req/s),Goodput (req/s),Latencia media (us),Latencia mediana (us),P90 (us),P95 (us),P99 (us),Latencia max (us),Latencia min (us)
+mytrace (2026-08-10 19-41-57),MYSQL,8.4.11,TRANSACTION_SERIALIZABLE,1,1,60.0,6000,100.0,100.01,2625,2552,3021,3218,3764,11502,1976
+mytrace (2026-08-11 17-44-40),MYSQL,8.4.11,TRANSACTION_SERIALIZABLE,1,1,60.0,6000,100.0,100.02,2638,2568,2987,3190,3644,6926,2074

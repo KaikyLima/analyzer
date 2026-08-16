@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<title>Relatorio de comparacao de benchmarks</title>
+<style>
+    body { font-family: -apple-system, Segoe UI, Arial, sans-serif; margin: 24px; color:#1a1a1a; }
+    h1 { margin-bottom: 4px; }
+    .subtitle { color:#666; margin-top:0; }
+    table.tbl { border-collapse: collapse; width: 100%; font-size: 13px; margin: 16px 0 32px; }
+    table.tbl th, table.tbl td { border: 1px solid #ddd; padding: 6px 10px; text-align: right; }
+    table.tbl th { background: #f4f6f8; text-align: right; }
+    table.tbl td:first-child, table.tbl th:first-child { text-align: left; }
+    .chart { margin-bottom: 32px; }
+    .chart img { max-width: 100%; border: 1px solid #eee; }
+    </style>
+</head>
+<body>
+<h1>Relatorio de comparacao de benchmarks</h1>
+<p class="subtitle">2 teste(s) analisado(s)</p>
+<h2>Resumo comparativo</h2>
+<table class="dataframe tbl">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Teste</th>
+      <th>SGBD</th>
+      <th>Versao</th>
+      <th>Isolation</th>
+      <th>Terminals</th>
+      <th>Scale Factor</th>
+      <th>Duracao (s)</th>
+      <th>Requests medidos</th>
+      <th>Throughput (req/s)</th>
+      <th>Goodput (req/s)</th>
+      <th>Latencia media (us)</th>
+      <th>Latencia mediana (us)</th>
+      <th>P90 (us)</th>
+      <th>P95 (us)</th>
+      <th>P99 (us)</th>
+      <th>Latencia max (us)</th>
+      <th>Latencia min (us)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>mytrace (2026-08-10 19-41-57)</td>
+      <td>MYSQL</td>
+      <td>8.4.11</td>
+      <td>TRANSACTION_SERIALIZABLE</td>
+      <td>1</td>
+      <td>1</td>
+      <td>60.0</td>
+      <td>6000</td>
+      <td>100.0</td>
+      <td>100.01</td>
+      <td>2625</td>
+      <td>2552</td>
+      <td>3021</td>
+      <td>3218</td>
+      <td>3764</td>
+      <td>11502</td>
+      <td>1976</td>
+    </tr>
+    <tr>
+      <td>mytrace (2026-08-11 17-44-40)</td>
+      <td>MYSQL</td>
+      <td>8.4.11</td>
+      <td>TRANSACTION_SERIALIZABLE</td>
+      <td>1</td>
+      <td>1</td>
+      <td>60.0</td>
+      <td>6000</td>
+      <td>100.0</td>
+      <td>100.02</td>
+      <td>2638</td>
+      <td>2568</td>
+      <td>2987</td>
+      <td>3190</td>
+      <td>3644</td>
+      <td>6926</td>
+      <td>2074</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Graficos</h2>
+<div class="chart"><h3>Throughput ao longo do tempo</h3><img src="throughput_over_time.png" alt="Throughput ao longo do tempo"></div><div class="chart"><h3>avg latency us over time</h3><img src="avg_latency_us_over_time.png" alt="avg latency us over time"></div><div class="chart"><h3>p95 latency us over time</h3><img src="p95_latency_us_over_time.png" alt="p95 latency us over time"></div><div class="chart"><h3>p99 latency us over time</h3><img src="p99_latency_us_over_time.png" alt="p99 latency us over time"></div><div class="chart"><h3>throughput bar</h3><img src="throughput_bar.png" alt="throughput bar"></div><div class="chart"><h3>avg latency bar</h3><img src="avg_latency_bar.png" alt="avg latency bar"></div><div class="chart"><h3>p95 latency bar</h3><img src="p95_latency_bar.png" alt="p95 latency bar"></div><div class="chart"><h3>p99 latency bar</h3><img src="p99_latency_bar.png" alt="p99 latency bar"></div>
+
+</body>
+</html>
