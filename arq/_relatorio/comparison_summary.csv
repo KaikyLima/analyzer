@@ -1,3 +1,4 @@
 Teste,SGBD,Versao,Isolation,Terminals,Scale Factor,Duracao (s),Requests medidos,Throughput (req/s),Goodput (req/s),Latencia media (us),Latencia mediana (us),P90 (us),P95 (us),P99 (us),Latencia max (us),Latencia min (us)
 tpcc (2026-08-23 22-24-54),DUCKDB,,TRANSACTION_SERIALIZABLE,1,1,60.0,1205,20.08,20.0,49746,54504,69274,98987,120236,576337,2839
+tpcc (2026-08-23 22-54-07),MYSQL,8.4.11,TRANSACTION_SERIALIZABLE,1,1,60.0,858,14.3,14.27,69875,62312,128030,153311,238550,887357,3960
 tpcc (2026-08-23 22-39-36),POSTGRES,"PostgreSQL 16.14 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit",TRANSACTION_SERIALIZABLE,1,1,60.0,1494,24.9,24.77,40119,33485,59202,79247,116989,453611,4157
