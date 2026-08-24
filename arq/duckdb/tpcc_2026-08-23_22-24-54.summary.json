@@ -1,0 +1,26 @@
+{
+ "Start timestamp (milliseconds)": 1787534634359,
+ "Current Timestamp (milliseconds)": 1787534694853,
+ "Elapsed Time (nanoseconds)": 60000077900,
+ "DBMS Type": "DUCKDB",
+ "DBMS Version": null,
+ "Benchmark Type": "tpcc",
+ "Final State": "EXIT",
+ "Measured Requests": 1205,
+ "isolation": "TRANSACTION_SERIALIZABLE",
+ "scalefactor": "1",
+ "terminals": "1",
+ "Latency Distribution": {
+  "95th Percentile Latency (microseconds)": 98987,
+  "Maximum Latency (microseconds)": 576337,
+  "Median Latency (microseconds)": 54504,
+  "Minimum Latency (microseconds)": 2839,
+  "25th Percentile Latency (microseconds)": 26717,
+  "90th Percentile Latency (microseconds)": 69274,
+  "99th Percentile Latency (microseconds)": 120236,
+  "75th Percentile Latency (microseconds)": 59344,
+  "Average Latency (microseconds)": 49746
+ },
+ "Throughput (requests/second)": 20.083307258506075,
+ "Goodput (requests/second)": 19.999974033367046
+}
