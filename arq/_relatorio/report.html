@@ -13,11 +13,17 @@
     table.tbl td:first-child, table.tbl th:first-child { text-align: left; }
     .chart { margin-bottom: 32px; }
     .chart img { max-width: 100%; border: 1px solid #eee; }
+    .query-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; margin: 16px 0 32px; }
+    .query-card { border: 1px solid #ddd; border-radius: 8px; padding: 10px 14px; background: #fafbfc; }
+    .query-card h4 { margin: 0 0 6px; font-size: 14px; }
+    .query-row { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; padding: 2px 0; border-top: 1px solid #eee; }
+    .query-row:first-of-type { border-top: none; }
+    .query-test-name { color: #555; max-width: 45%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     </style>
 </head>
 <body>
 <h1>Relatorio de comparacao de benchmarks</h1>
-<p class="subtitle">3 teste(s) analisado(s)</p>
+<p class="subtitle">4 teste(s) analisado(s)</p>
 <h2>Resumo comparativo</h2>
 <table class="dataframe tbl">
   <thead>
@@ -43,66 +49,86 @@
   </thead>
   <tbody>
     <tr>
-      <td>tpcc (2026-08-23 22-24-54)</td>
-      <td>DUCKDB</td>
-      <td>-</td>
-      <td>TRANSACTION_SERIALIZABLE</td>
-      <td>1</td>
-      <td>1</td>
-      <td>60.0</td>
-      <td>1205</td>
-      <td>20.08</td>
-      <td>20.00</td>
-      <td>49746</td>
-      <td>54504</td>
-      <td>69274</td>
-      <td>98987</td>
-      <td>120236</td>
-      <td>576337</td>
-      <td>2839</td>
-    </tr>
-    <tr>
-      <td>tpcc (2026-08-23 22-54-07)</td>
-      <td>MYSQL</td>
-      <td>8.4.11</td>
-      <td>TRANSACTION_SERIALIZABLE</td>
-      <td>1</td>
-      <td>1</td>
-      <td>60.0</td>
-      <td>858</td>
-      <td>14.30</td>
-      <td>14.27</td>
-      <td>69875</td>
-      <td>62312</td>
-      <td>128030</td>
-      <td>153311</td>
-      <td>238550</td>
-      <td>887357</td>
-      <td>3960</td>
-    </tr>
-    <tr>
-      <td>tpcc (2026-08-23 22-39-36)</td>
+      <td>tpch</td>
       <td>POSTGRES</td>
       <td>PostgreSQL 16.14 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit</td>
       <td>TRANSACTION_SERIALIZABLE</td>
-      <td>1</td>
-      <td>1</td>
-      <td>60.0</td>
-      <td>1494</td>
-      <td>24.90</td>
-      <td>24.77</td>
-      <td>40119</td>
-      <td>33485</td>
-      <td>59202</td>
-      <td>79247</td>
-      <td>116989</td>
-      <td>453611</td>
-      <td>4157</td>
+      <td>50</td>
+      <td>0.2</td>
+      <td>300.0</td>
+      <td>1480</td>
+      <td>4.93</td>
+      <td>4.94</td>
+      <td>202135</td>
+      <td>159574</td>
+      <td>531679</td>
+      <td>583043</td>
+      <td>649522</td>
+      <td>1262154</td>
+      <td>18731</td>
+    </tr>
+    <tr>
+      <td>tpch-erros-10%</td>
+      <td>POSTGRES</td>
+      <td>PostgreSQL 16.14 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit</td>
+      <td>TRANSACTION_SERIALIZABLE</td>
+      <td>50</td>
+      <td>0.2</td>
+      <td>301.0</td>
+      <td>1359</td>
+      <td>4.51</td>
+      <td>4.53</td>
+      <td>221006</td>
+      <td>170356</td>
+      <td>577188</td>
+      <td>619979</td>
+      <td>749486</td>
+      <td>1396776</td>
+      <td>19321</td>
+    </tr>
+    <tr>
+      <td>tpch-erros-40%</td>
+      <td>POSTGRES</td>
+      <td>PostgreSQL 16.14 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit</td>
+      <td>TRANSACTION_SERIALIZABLE</td>
+      <td>50</td>
+      <td>0.2</td>
+      <td>300.0</td>
+      <td>1214</td>
+      <td>4.05</td>
+      <td>4.06</td>
+      <td>246964</td>
+      <td>181186</td>
+      <td>585933</td>
+      <td>675591</td>
+      <td>1237363</td>
+      <td>1366303</td>
+      <td>19596</td>
+    </tr>
+    <tr>
+      <td>tpch02</td>
+      <td>POSTGRES</td>
+      <td>PostgreSQL 16.14 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit</td>
+      <td>TRANSACTION_SERIALIZABLE</td>
+      <td>50</td>
+      <td>0.2</td>
+      <td>301.0</td>
+      <td>1474</td>
+      <td>4.90</td>
+      <td>4.91</td>
+      <td>203993</td>
+      <td>159400</td>
+      <td>531547</td>
+      <td>577338</td>
+      <td>641350</td>
+      <td>1084096</td>
+      <td>18481</td>
     </tr>
   </tbody>
 </table>
 <h2>Graficos</h2>
-<div class="chart"><h3>Throughput ao longo do tempo</h3><img src="throughput_over_time.png" alt="Throughput ao longo do tempo"></div><div class="chart"><h3>avg latency us over time</h3><img src="avg_latency_us_over_time.png" alt="avg latency us over time"></div><div class="chart"><h3>p95 latency us over time</h3><img src="p95_latency_us_over_time.png" alt="p95 latency us over time"></div><div class="chart"><h3>p99 latency us over time</h3><img src="p99_latency_us_over_time.png" alt="p99 latency us over time"></div><div class="chart"><h3>throughput bar</h3><img src="throughput_bar.png" alt="throughput bar"></div><div class="chart"><h3>avg latency bar</h3><img src="avg_latency_bar.png" alt="avg latency bar"></div><div class="chart"><h3>p95 latency bar</h3><img src="p95_latency_bar.png" alt="p95 latency bar"></div><div class="chart"><h3>p99 latency bar</h3><img src="p99_latency_bar.png" alt="p99 latency bar"></div>
+<div class="chart"><h3>Throughput ao longo do tempo</h3><img src="throughput_over_time.png" alt="Throughput ao longo do tempo"></div><div class="chart"><h3>avg latency us over time</h3><img src="avg_latency_us_over_time.png" alt="avg latency us over time"></div><div class="chart"><h3>Latencia media por consulta</h3><img src="per_query_avg_latency.png" alt="Latencia media por consulta"></div>
+<h2>Minimo / maximo por consulta</h2><div class="query-grid"><div class="query-card"><h4>Q1</h4><div class="query-row"><span class="query-test-name">tpch</span><span>min: <b>511.65 ms</b></span><span>max: <b>700.10 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-10%</span><span>min: <b>520.96 ms</b></span><span>max: <b>836.58 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-40%</span><span>min: <b>541.09 ms</b></span><span>max: <b>727.21 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch02</span><span>min: <b>511.92 ms</b></span><span>max: <b>799.36 ms</b></span></div></div><div class="query-card"><h4>Q2</h4><div class="query-row"><span class="query-test-name">tpch</span><span>min: <b>81.12 ms</b></span><span>max: <b>138.09 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-10%</span><span>min: <b>80.44 ms</b></span><span>max: <b>197.12 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-40%</span><span>min: <b>79.21 ms</b></span><span>max: <b>156.99 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch02</span><span>min: <b>83.05 ms</b></span><span>max: <b>240.51 ms</b></span></div></div><div class="query-card"><h4>Q3</h4><div class="query-row"><span class="query-test-name">tpch</span><span>min: <b>103.62 ms</b></span><span>max: <b>200.28 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-10%</span><span>min: <b>116.07 ms</b></span><span>max: <b>182.18 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-40%</span><span>min: <b>119.14 ms</b></span><span>max: <b>291.64 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch02</span><span>min: <b>105.68 ms</b></span><span>max: <b>320.63 ms</b></span></div></div><div class="query-card"><h4>Q4</h4><div class="query-row"><span class="query-test-name">tpch</span><span>min: <b>60.77 ms</b></span><span>max: <b>92.00 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-10%</span><span>min: <b>54.56 ms</b></span><span>max: <b>127.02 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-40%</span><span>min: <b>64.71 ms</b></span><span>max: <b>232.43 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch02</span><span>min: <b>63.52 ms</b></span><span>max: <b>232.04 ms</b></span></div></div><div class="query-card"><h4>Q5</h4><div class="query-row"><span class="query-test-name">tpch</span><span>min: <b>130.54 ms</b></span><span>max: <b>227.34 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-10%</span><span>min: <b>140.78 ms</b></span><span>max: <b>305.18 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-40%</span><span>min: <b>148.74 ms</b></span><span>max: <b>268.92 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch02</span><span>min: <b>128.24 ms</b></span><span>max: <b>812.60 ms</b></span></div></div><div class="query-card"><h4>Q6</h4><div class="query-row"><span class="query-test-name">tpch</span><span>min: <b>84.93 ms</b></span><span>max: <b>189.42 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-10%</span><span>min: <b>88.03 ms</b></span><span>max: <b>327.95 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-40%</span><span>min: <b>116.59 ms</b></span><span>max: <b>363.70 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch02</span><span>min: <b>84.28 ms</b></span><span>max: <b>192.25 ms</b></span></div></div><div class="query-card"><h4>Q7</h4><div class="query-row"><span class="query-test-name">tpch</span><span>min: <b>200.51 ms</b></span><span>max: <b>286.30 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-10%</span><span>min: <b>234.00 ms</b></span><span>max: <b>750.97 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-40%</span><span>min: <b>250.62 ms</b></span><span>max: <b>1157.21 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch02</span><span>min: <b>201.52 ms</b></span><span>max: <b>300.18 ms</b></span></div></div><div class="query-card"><h4>Q8</h4><div class="query-row"><span class="query-test-name">tpch</span><span>min: <b>310.85 ms</b></span><span>max: <b>530.67 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-10%</span><span>min: <b>339.39 ms</b></span><span>max: <b>528.91 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-40%</span><span>min: <b>361.87 ms</b></span><span>max: <b>473.55 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch02</span><span>min: <b>313.18 ms</b></span><span>max: <b>458.88 ms</b></span></div></div><div class="query-card"><h4>Q9</h4><div class="query-row"><span class="query-test-name">tpch</span><span>min: <b>219.59 ms</b></span><span>max: <b>946.70 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-10%</span><span>min: <b>227.68 ms</b></span><span>max: <b>1017.72 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-40%</span><span>min: <b>238.77 ms</b></span><span>max: <b>744.74 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch02</span><span>min: <b>216.36 ms</b></span><span>max: <b>755.87 ms</b></span></div></div><div class="query-card"><h4>Q10</h4><div class="query-row"><span class="query-test-name">tpch</span><span>min: <b>108.36 ms</b></span><span>max: <b>255.77 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-10%</span><span>min: <b>107.60 ms</b></span><span>max: <b>202.84 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-40%</span><span>min: <b>122.44 ms</b></span><span>max: <b>171.21 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch02</span><span>min: <b>105.38 ms</b></span><span>max: <b>476.20 ms</b></span></div></div><div class="query-card"><h4>Q11</h4><div class="query-row"><span class="query-test-name">tpch</span><span>min: <b>24.27 ms</b></span><span>max: <b>49.32 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-10%</span><span>min: <b>24.38 ms</b></span><span>max: <b>53.58 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-40%</span><span>min: <b>24.30 ms</b></span><span>max: <b>57.54 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch02</span><span>min: <b>25.73 ms</b></span><span>max: <b>44.35 ms</b></span></div></div><div class="query-card"><h4>Q12</h4><div class="query-row"><span class="query-test-name">tpch</span><span>min: <b>98.13 ms</b></span><span>max: <b>453.80 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-10%</span><span>min: <b>106.48 ms</b></span><span>max: <b>223.47 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-40%</span><span>min: <b>127.95 ms</b></span><span>max: <b>651.98 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch02</span><span>min: <b>99.76 ms</b></span><span>max: <b>243.30 ms</b></span></div></div><div class="query-card"><h4>Q13</h4><div class="query-row"><span class="query-test-name">tpch</span><span>min: <b>200.12 ms</b></span><span>max: <b>331.35 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-10%</span><span>min: <b>198.29 ms</b></span><span>max: <b>520.95 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-40%</span><span>min: <b>199.60 ms</b></span><span>max: <b>342.58 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch02</span><span>min: <b>197.17 ms</b></span><span>max: <b>314.12 ms</b></span></div></div><div class="query-card"><h4>Q14</h4><div class="query-row"><span class="query-test-name">tpch</span><span>min: <b>53.18 ms</b></span><span>max: <b>78.30 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-10%</span><span>min: <b>54.46 ms</b></span><span>max: <b>80.93 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-40%</span><span>min: <b>53.05 ms</b></span><span>max: <b>76.69 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch02</span><span>min: <b>51.99 ms</b></span><span>max: <b>72.59 ms</b></span></div></div><div class="query-card"><h4>Q15</h4><div class="query-row"><span class="query-test-name">tpch</span><span>min: <b>118.22 ms</b></span><span>max: <b>468.33 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-10%</span><span>min: <b>129.70 ms</b></span><span>max: <b>550.25 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-40%</span><span>min: <b>126.89 ms</b></span><span>max: <b>508.72 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch02</span><span>min: <b>118.99 ms</b></span><span>max: <b>298.00 ms</b></span></div></div><div class="query-card"><h4>Q16</h4><div class="query-row"><span class="query-test-name">tpch</span><span>min: <b>96.89 ms</b></span><span>max: <b>128.11 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-10%</span><span>min: <b>97.61 ms</b></span><span>max: <b>212.18 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-40%</span><span>min: <b>96.88 ms</b></span><span>max: <b>149.71 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch02</span><span>min: <b>95.29 ms</b></span><span>max: <b>122.18 ms</b></span></div></div><div class="query-card"><h4>Q17</h4><div class="query-row"><span class="query-test-name">tpch</span><span>min: <b>167.23 ms</b></span><span>max: <b>235.61 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-10%</span><span>min: <b>176.01 ms</b></span><span>max: <b>399.83 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-40%</span><span>min: <b>187.40 ms</b></span><span>max: <b>301.07 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch02</span><span>min: <b>161.03 ms</b></span><span>max: <b>410.85 ms</b></span></div></div><div class="query-card"><h4>Q18</h4><div class="query-row"><span class="query-test-name">tpch</span><span>min: <b>458.71 ms</b></span><span>max: <b>1262.15 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-10%</span><span>min: <b>547.59 ms</b></span><span>max: <b>1396.78 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-40%</span><span>min: <b>555.34 ms</b></span><span>max: <b>1366.30 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch02</span><span>min: <b>469.54 ms</b></span><span>max: <b>1084.10 ms</b></span></div></div><div class="query-card"><h4>Q19</h4><div class="query-row"><span class="query-test-name">tpch</span><span>min: <b>18.73 ms</b></span><span>max: <b>24.80 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-10%</span><span>min: <b>19.32 ms</b></span><span>max: <b>38.29 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-40%</span><span>min: <b>19.60 ms</b></span><span>max: <b>82.86 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch02</span><span>min: <b>18.48 ms</b></span><span>max: <b>29.21 ms</b></span></div></div><div class="query-card"><h4>Q20</h4><div class="query-row"><span class="query-test-name">tpch</span><span>min: <b>86.13 ms</b></span><span>max: <b>160.91 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-10%</span><span>min: <b>96.58 ms</b></span><span>max: <b>262.89 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-40%</span><span>min: <b>94.47 ms</b></span><span>max: <b>296.06 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch02</span><span>min: <b>79.29 ms</b></span><span>max: <b>165.50 ms</b></span></div></div><div class="query-card"><h4>Q21</h4><div class="query-row"><span class="query-test-name">tpch</span><span>min: <b>175.96 ms</b></span><span>max: <b>315.65 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-10%</span><span>min: <b>168.07 ms</b></span><span>max: <b>649.11 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-40%</span><span>min: <b>183.07 ms</b></span><span>max: <b>656.82 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch02</span><span>min: <b>147.52 ms</b></span><span>max: <b>492.35 ms</b></span></div></div><div class="query-card"><h4>Q22</h4><div class="query-row"><span class="query-test-name">tpch</span><span>min: <b>31.96 ms</b></span><span>max: <b>46.68 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-10%</span><span>min: <b>31.40 ms</b></span><span>max: <b>52.50 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch-erros-40%</span><span>min: <b>32.14 ms</b></span><span>max: <b>49.90 ms</b></span></div><div class="query-row"><span class="query-test-name">tpch02</span><span>min: <b>31.42 ms</b></span><span>max: <b>50.97 ms</b></span></div></div></div>
 
 </body>
 </html>

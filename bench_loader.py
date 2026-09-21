@@ -82,7 +82,9 @@ def load_test_folder(folder: Path) -> Optional[TestRun]:
     prefix, sep = found
 
     test_name, timestamp = _split_prefix(prefix)
-    label = f"{test_name} ({timestamp})" if timestamp else test_name
+    # O label exibido nas tabelas/graficos e o nome da pasta onde os arquivos
+    # daquele teste estao (em vez de "<nome>_<timestamp>").
+    label = folder.name
     run = TestRun(label=label, test_name=test_name, timestamp=timestamp, folder=folder, prefix=prefix)
 
     def p(suffix: str) -> Path:
